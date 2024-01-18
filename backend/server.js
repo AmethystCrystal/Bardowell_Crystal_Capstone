@@ -2,19 +2,20 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
-const testRoutes = require('./routes/travelExperiences');
+const bodyParser = require('body-parser');
+const travelExperience = require('./routes/travelExperiences');
 
 const app = express();
 
 // middleware
-app.use(express.json());
+app.use(bodyParser.json());
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
 
 // routes
-app.use('/api/testRoutes', testRoutes);
+app.use('/api/TravelExperiences', travelExperience);
 
 // connect to DB
 mongoose

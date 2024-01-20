@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Experiences from '../components/Experiences';
+import ExperienceForm from '../components/ExperienceForm';
 
 const Home = () => {
   const [experiences, setExperiences] = useState(null);
@@ -23,6 +24,7 @@ const Home = () => {
            <Experiences key={experience._id} experience={experience}/>
           ))}
       </div>
+      <ExperienceForm />
     </div>
   );
 };

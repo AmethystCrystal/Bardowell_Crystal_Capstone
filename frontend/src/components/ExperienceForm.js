@@ -8,19 +8,23 @@ const ExperienceForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        if (!name || !title || !body) {
+            setError("Please fill in all fields");
+            return;
+          }
+
         const experience = {name, title, body}
-        const response = await fetch('/api/TravelExperience', {
+        const response = await fetch('/api/TravelExperiences', {
         method: 'POST',
         body: JSON.stringify(experience),
-        header: {
+        headers: {
             "Content-Type": "application/json"
         }
      })
      const json = await response.json()
 
-     if (!response.ok) {
-        setError(error)
-     }
+    
      if (response.ok) {
         setName('')
         setTitle('')
@@ -33,6 +37,8 @@ const ExperienceForm = () => {
     return (
         <form className="create" onSubmit={handleSubmit}>
             <h3>Add a Travel Log</h3>
+
+            {error && <p style={{ color: 'red' }}>{error}</p>}
 
             <label>Name</label>
             <input
@@ -47,10 +53,10 @@ const ExperienceForm = () => {
             value={title}
             />
             <label>Body</label>
-            <input
-            type="text"
-            onChange={(e) => setBody(e.target.value)}
-            value={body}
+            <textarea
+                rows="5"
+                onChange={(e) => setBody(e.target.value)}
+                value={body}
             />
             <button>Add Travel Log</button>
         </form>

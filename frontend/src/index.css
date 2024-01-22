@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
 :root {
-  --primary: #1aac83;
+  --primary: #141B41;
   --error: #e7195a;
 }
 body {
-  background: #f1f1f1;
+  background: #6F9CEB;
   margin: 0;
   font-family: "Poppins";
 }
@@ -22,7 +22,7 @@ header .container {
   justify-content: space-between;
 }
 header a {
-  color: #333;
+  color: #141B41;
   text-decoration: none;
 }
 .pages{
@@ -38,10 +38,35 @@ header a {
   gap: 100px;
 }
 .experience-details {
-  background: #fff;
+  background: #98B9F2;
   border-radius: 4px;
   margin: 20px auto;
   padding: 20px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  color: #141B41;
+}
+
+/* form */
+label, input {
+  display: block;
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #141B41;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 100px;
 }

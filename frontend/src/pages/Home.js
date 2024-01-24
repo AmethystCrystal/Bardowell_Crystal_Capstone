@@ -17,7 +17,7 @@ const Home = () => {
     };
     
     fetchExperiences();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="home">

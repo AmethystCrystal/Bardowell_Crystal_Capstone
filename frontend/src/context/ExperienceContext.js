@@ -12,6 +12,10 @@ export const experiencesReducer = (state, action) => {
             return {
                 experiences: [action.payload, ...state.experiences]
             }
+        case 'DELETE_EXPERIENCE':
+            return {
+                experiences: state.experiences.filter((e) => e._id !== action.payload._id)
+            }
         default:
             return state
     }

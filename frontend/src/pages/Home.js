@@ -1,18 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Experiences from '../components/Experiences';
 import ExperienceForm from '../components/ExperienceForm';
+import { useExperiencesContext } from '../hooks/useExperiencesContext';
 
 const Home = () => {
-  const [experiences, setExperiences] = useState(null);
+  const { experiences, dispatch } = useExperiencesContext();
 
   useEffect(() => {
     const fetchExperiences = async () => {
       const response = await fetch('/api/TravelExperiences');
       const json = await response.json();
+
       if (response.ok) {
-        setExperiences(json);
+        dispatch({type: 'SET_EXPERIENCES', payload: json})
       }
     };
+    
     fetchExperiences();
   }, []);
 
@@ -21,7 +24,7 @@ const Home = () => {
       <div className="experiences">
         {experiences &&
           experiences.map((experience) => (
-           <Experiences key={experience._id} experience={experience}/>
+            <Experiences key={experience._id} experience={experience} />
           ))}
       </div>
       <ExperienceForm />

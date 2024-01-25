@@ -3,11 +3,13 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const travelExperience = require('./routes/travelExperiences');
 
 const app = express();
 
 // middleware
+app.use(cors());
 app.use(bodyParser.json());
 app.use((req, res, next) => {
   console.log(req.path, req.method);

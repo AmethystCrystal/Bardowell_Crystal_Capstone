@@ -22,6 +22,6 @@ router.post('/', createExperience);
 router.delete('/:id', deleteExperience);
 
 // UPDATE a travel experience
-router.patch('/:id', updateExperience);
+router.put('/:id', updateExperience);
 
 module.exports = router;

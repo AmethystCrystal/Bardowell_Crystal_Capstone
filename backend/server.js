@@ -5,11 +5,14 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const travelExperience = require('./routes/travelExperiences');
-
+const corsOptions = {
+  origin: 'https://travel-log-app1-81je960s8-amethystcrystals-projects.vercel.app/',
+  credentials: true,
+};
 const app = express();
 
 // middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use((req, res, next) => {
   console.log(req.path, req.method);

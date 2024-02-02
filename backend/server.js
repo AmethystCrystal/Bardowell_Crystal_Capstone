@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const travelExperience = require('./routes/travelExperiences');
 const corsOptions = {
-  origin: 'https://travel-log-app1-81je960s8-amethystcrystals-projects.vercel.app/',
+  origin: 'https://travel-log-f0fnzpquv-amethystcrystals-projects.vercel.app',
   credentials: true,
 };
 const app = express();
